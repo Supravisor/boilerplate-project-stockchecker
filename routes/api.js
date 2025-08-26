@@ -8,6 +8,11 @@ module.exports = function (app) {
       let like = req.query.like;
 
       const getStock = async (selection) => {
+        try {
+
+        } catch (err) {
+
+        }
       };
 
     });
