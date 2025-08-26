@@ -9,6 +9,7 @@ module.exports = function (app) {
 
       const getStock = async (selection) => {
         try {
+          const data = await fetch(`https://stock-price-checker-proxy.freecodecamp.rocks/v1/stock/${selection}/quote`);
 
         } catch (err) {
 
