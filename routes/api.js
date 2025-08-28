@@ -15,7 +15,7 @@ module.exports = function (app) {
 
           return res.json(stock + " " + like + " " + latestPrice);
         } catch (err) {
-
+            console.log(err);
         }
       };
 
