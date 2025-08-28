@@ -18,7 +18,9 @@ module.exports = function (app) {
             console.log(err);
         }
       };
-      getStock(stock);
+      if (typeof(stock) === "string") {
+        return res.json({"stockData": getStock(stock) });
+      }
     });
     
 };
