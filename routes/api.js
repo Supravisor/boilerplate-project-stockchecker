@@ -13,14 +13,12 @@ module.exports = function (app) {
           const info = await data.json();
           const { change,changePercent,close,high,latestPrice,latestTime,latestVolume,low,open,previousClose,symbol,volume } = info;
 
-          return res.json(stock + " " + like + " " + latestPrice);
+          return { "stock": stock, "price": latestPrice, "likes": like };
         } catch (err) {
             console.log(err);
         }
       };
-
       getStock(stock);
-
     });
     
 };
