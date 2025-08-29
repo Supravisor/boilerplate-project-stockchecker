@@ -2,6 +2,7 @@
 
 module.exports = function (app) {
   let likes = 0;
+  let ips = [];
 
   app.route('/api/stock-prices')
     .get(function (req, res){
