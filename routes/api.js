@@ -7,12 +7,12 @@ module.exports = function (app) {
     .get(function (req, res){
       let stock = req.query.stock;
       let like = req.query.like;
-console.log(stock, like, likes);
-console.log(like === 1);
-      if (like == 1) {
-        likes++;
-      }
-      const getStock = async (selection) => {
+
+        if (like === "true") {
+          likes++;
+        }
+
+        const getStock = async (selection) => {
         try {
           if (typeof(stock) === "string") {
             const data = await fetch(`https://stock-price-checker-proxy.freecodecamp.rocks/v1/stock/${selection}/quote`);
