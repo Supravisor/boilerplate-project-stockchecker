@@ -10,7 +10,9 @@ module.exports = function (app) {
       let like = req.query.like;
       let ip = req.ip;
 
-        if (like === "true") {
+      ip = ip.replace(/^::\w+:/, "").replace(/\.\d+\.\d+$:/, "");
+
+      if (like === "true") {
           likes++;
         }
 
