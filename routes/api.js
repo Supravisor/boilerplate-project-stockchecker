@@ -11,6 +11,7 @@ module.exports = function (app) {
       let ip = req.ip;
 
       ip = ip.replace(/^::\w+:/, "").replace(/\.\d+\.\d+$:/, "");
+      ip = ip.replace(/\.\d+\.\d+$/, "");
 
       if (like === "true") {
           likes++;
