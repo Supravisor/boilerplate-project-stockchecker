@@ -8,6 +8,7 @@ module.exports = function (app) {
     .get(function (req, res){
       let stock = req.query.stock;
       let like = req.query.like;
+      let ip = req.ip;
 
         if (like === "true") {
           likes++;
