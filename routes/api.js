@@ -8,11 +8,14 @@ module.exports = function (app) {
       let like = req.query.like ? 1 : 0;
       const getStock = async (selection) => {
         try {
-          const data = await fetch(`https://stock-price-checker-proxy.freecodecamp.rocks/v1/stock/${selection}/quote`);
-          const info = await data.json();
-          const { change,changePercent,close,high,latestPrice,latestTime,latestVolume,low,open,previousClose,symbol,volume } = info;
+          if (typeof(stock) === "string") {
+            const data = await fetch(`https://stock-price-checker-proxy.freecodecamp.rocks/v1/stock/${selection}/quote`);
+            const info = await data.json();
+            const { change,changePercent,close,high,latestPrice,latestTime,latestVolume,low,open,previousClose,symbol,volume } = info;
 
-          return res.json({ "stockData": { "stock": stock, "price": latestPrice, "likes": like } });
+            return res.json({ "stockData": { "stock": stock, "price": latestPrice, "likes": like } });
+          } else {
+          }
         } catch (err) {
             console.log(err);
         }
