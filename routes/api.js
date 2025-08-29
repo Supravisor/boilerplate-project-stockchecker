@@ -6,20 +6,20 @@ module.exports = function (app) {
     .get(function (req, res){
       let stock = req.query.stock;
       let like = req.query.like;
-
+console.log(stock, like, Object.keys(req.query))
       const getStock = async (selection) => {
         try {
           const data = await fetch(`https://stock-price-checker-proxy.freecodecamp.rocks/v1/stock/${selection}/quote`);
           const info = await data.json();
           const { change,changePercent,close,high,latestPrice,latestTime,latestVolume,low,open,previousClose,symbol,volume } = info;
 
-          return { "stock": stock, "price": latestPrice, "likes": like };
+          return res.json({"stockData": { "stock": stock, "price": latestPrice, "likes": like } });
         } catch (err) {
             console.log(err);
         }
       };
       if (typeof(stock) === "string") {
-        return res.json({"stockData": getStock(stock) });
+        return getStock(stock);
       }
     });
     
