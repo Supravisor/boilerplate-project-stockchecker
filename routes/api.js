@@ -8,8 +8,12 @@ module.exports = function (app) {
     .get(function (req, res){
       let stock = req.query.stock;
       let like = req.query.like;
+      let ip = req.ip;
 
-        if (like === "true") {
+      ip = ip.replace(/^::\w+:/, "").replace(/\.\d+\.\d+$:/, "");
+      ip = ip.replace(/\.\d+\.\d+$/, "");
+
+      if (like === "true") {
           likes++;
         }
 
