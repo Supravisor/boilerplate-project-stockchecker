@@ -18,6 +18,7 @@ module.exports = function (app) {
             return;
           } else {
             likes++;
+            ips.push(ip);
           }
         }
 
