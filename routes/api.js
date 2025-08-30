@@ -31,13 +31,16 @@ module.exports = function (app) {
 
             return res.json({ "stockData": { "stock": stock, "price": latestPrice, "likes": likes[stock] || 0 } });
           } else {
+              const data1 = await fetch(`https://stock-price-checker-proxy.freecodecamp.rocks/v1/stock/${selection[0]}/quote`);
+//              console.log(data1)
+
           }
         } catch (err) {
             console.log(err);
         }
       };
 
-    return res.json({"stockData": getStock(stock) });
+    getStock(stock);
     });
     
 };
