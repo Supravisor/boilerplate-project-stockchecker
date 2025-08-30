@@ -29,7 +29,7 @@ module.exports = function (app) {
             const info = await data.json();
             const { change,changePercent,close,high,latestPrice,latestTime,latestVolume,low,open,previousClose,symbol,volume } = info;
 
-            return res.json({ "stockData": { "stock": stock, "price": latestPrice, "likes": likes[stock] } });
+            return res.json({ "stockData": { "stock": stock, "price": latestPrice, "likes": likes[stock] || 0 } });
           } else {
           }
         } catch (err) {
