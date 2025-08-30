@@ -14,7 +14,11 @@ module.exports = function (app) {
       ip = ip.replace(/\.\d+\.\d+$/, "");
 
       if (like === "true") {
-          likes++;
+          if (ips.includes(ip)) {
+            return;
+          } else {
+            likes++;
+          }
         }
 
         const getStock = async (selection) => {
