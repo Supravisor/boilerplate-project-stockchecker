@@ -1,9 +1,7 @@
 'use strict';
 
 module.exports = function (app) {
-  let likes = {
-    GOOG: 0
-  };
+  let likes = {};
   let ips = [];
 
   app.route('/api/stock-prices')
@@ -19,9 +17,7 @@ module.exports = function (app) {
           if (ips.includes(ip)) {
             return;
           } else {
-            if (likes.hasOwnProperty(stock)) {
-              likes[stock] += 1;
-            }
+            likes.hasOwnProperty(stock) ? likes[stock] += 1 : likes[stock] = 1;
             ips.push(ip);
           }
         }
