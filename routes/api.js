@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function (app) {
-  let likes = 0;
+  let likes = {};
   let ips = [];
 
   app.route('/api/stock-prices')
@@ -17,7 +17,7 @@ module.exports = function (app) {
           if (ips.includes(ip)) {
             return;
           } else {
-            likes++;
+            likes[stock] += 1;
             ips.push(ip);
           }
         }
@@ -29,7 +29,7 @@ module.exports = function (app) {
             const info = await data.json();
             const { change,changePercent,close,high,latestPrice,latestTime,latestVolume,low,open,previousClose,symbol,volume } = info;
 
-            return res.json({ "stockData": { "stock": stock, "price": latestPrice, "likes": likes } });
+            return res.json({ "stockData": { "stock": stock, "price": latestPrice, "likes": likes[stock] } });
           } else {
           }
         } catch (err) {
