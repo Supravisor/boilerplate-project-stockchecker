@@ -25,14 +25,17 @@ module.exports = function (app) {
         const getStock = async (selection) => {
         try {
           if (typeof(stock) === "string") {
+
             const data = await fetch(`https://stock-price-checker-proxy.freecodecamp.rocks/v1/stock/${selection}/quote`);
             const info = await data.json();
             const { change,changePercent,close,high,latestPrice,latestTime,latestVolume,low,open,previousClose,symbol,volume } = info;
 
             return res.json({ "stockData": { "stock": stock, "price": latestPrice, "likes": likes[stock] || 0 } });
+
           } else {
+
               const data1 = await fetch(`https://stock-price-checker-proxy.freecodecamp.rocks/v1/stock/${selection[0]}/quote`);
-//              console.log(data1)
+              const info1 = await data1.json();
 
           }
         } catch (err) {
