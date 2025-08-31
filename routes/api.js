@@ -36,6 +36,7 @@ module.exports = function (app) {
 
               const data1 = await fetch(`https://stock-price-checker-proxy.freecodecamp.rocks/v1/stock/${selection[0]}/quote`);
               const info1 = await data1.json();
+              const { change1,changePercent1,close1,high1,latestPrice1,latestTime1,latestVolume1,low1,open1,previousClose1,symbol1,volume1 } = info1;
 
           }
         } catch (err) {
