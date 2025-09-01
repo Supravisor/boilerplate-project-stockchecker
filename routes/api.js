@@ -52,10 +52,12 @@ module.exports = function (app) {
                 price2 = latestPrice;
               }
 
-              return res.json([
-                { "stock": selection[0], "price": price1, "likes": likes[selection[0]] || 0 },
-                { "stock": selection[1], "price": price2, "likes": likes[selection[1]] || 0 }
-              ]);
+              return res.json( { "stockData": 
+                [
+                  { "stock": selection[0], "price": price1, "likes": likes[selection[0]] || 0 },
+                  { "stock": selection[1], "price": price2, "likes": likes[selection[1]] || 0 }
+                ]
+              });
 
           }
         } catch (err) {
