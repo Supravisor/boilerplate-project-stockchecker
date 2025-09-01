@@ -39,13 +39,18 @@ module.exports = function (app) {
               let price1;
       
               if (selection[0]) {
-                const { change,changePercent,close,high,latestPrice,latestTime,latestVolume,low,open,previousClose,symbol,volume } = info1;
+                const { change, changePercent, close, high, latestPrice, latestTime, latestVolume, low, open, previousClose, symbol, volume } = info1;
                 price1 = latestPrice;
               }
 
               const data2 = await fetch(`https://stock-price-checker-proxy.freecodecamp.rocks/v1/stock/${selection[1]}/quote`);
               const info2 = await data2.json();
-              const { change2,changePercent2,close2,high2,latestPrice2,latestTime2,latestVolume2,low2,open2,previousClose2,symbol2,volume2 } = info2;
+              let price2;
+      
+              if (selection[1]) {
+                const { change, changePercent, close, high, latestPrice, latestTime, latestVolume, low, open, previousClose, symbol, volume } = info2;
+                price2 = latestPrice;
+              }
 
               return [
                 { "stock": selection[0], "price": latestPrice1, "likes": like },
