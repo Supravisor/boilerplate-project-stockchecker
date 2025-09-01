@@ -42,6 +42,11 @@ module.exports = function (app) {
               const info2 = await data2.json();
               const { change2,changePercent2,close2,high2,latestPrice2,latestTime2,latestVolume2,low2,open2,previousClose2,symbol2,volume2 } = info2;
 
+              return [
+                { "stock": selection[0], "price": latestPrice1, "likes": like },
+                { "stock": selection[1], "price": latestPrice2, "likes": like }
+              ];
+
           }
         } catch (err) {
             console.log(err);
