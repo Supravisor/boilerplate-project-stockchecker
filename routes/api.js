@@ -53,8 +53,8 @@ module.exports = function (app) {
               }
 
               return res.json([
-                { "stock": selection[0], "price": price1, "likes": like },
-                { "stock": selection[1], "price": price2, "likes": like }
+                { "stock": selection[0], "price": price1, "likes": likes[selection[0]] || 0 },
+                { "stock": selection[1], "price": price2, "likes": likes[selection[1]] || 0 }
               ]);
 
           }
