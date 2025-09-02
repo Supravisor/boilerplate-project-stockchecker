@@ -12,6 +12,8 @@ module.exports = function (app) {
 
         if (typeof(stock) === "string") {
           stock = stock.toUpperCase();
+        } else {
+            stock = stock.map(sym => sym.toUpperCase());
         }
 
       ip = ip.replace(/^::\w+:/, "").replace(/\.\d+\.\d+$:/, "");
