@@ -68,8 +68,8 @@ module.exports = function (app) {
 
               return res.json( { "stockData": 
                 [
-                  { "stock": selection[0], "price": price1, "rel_likes": likes[selection[0]] || 0 },
-                  { "stock": selection[1], "price": price2, "rel_likes": likes[selection[1]] || 0 }
+                  { "stock": selection[0], "price": price1, "rel_likes": likes[selection[0]] - likes[selection[1]] },
+                  { "stock": selection[1], "price": price2, "rel_likes": likes[selection[1]] - likes[selection[0]] }
                 ]
               });
 
