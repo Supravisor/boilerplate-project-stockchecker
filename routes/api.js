@@ -10,6 +10,10 @@ module.exports = function (app) {
       let like = req.query.like;
       let ip = req.ip;
 
+        if (typeof(stock) === "string") {
+          stock = stock.toUpperCase();
+        }
+
       ip = ip.replace(/^::\w+:/, "").replace(/\.\d+\.\d+$:/, "");
       ip = ip.replace(/\.\d+\.\d+$/, "");
 
