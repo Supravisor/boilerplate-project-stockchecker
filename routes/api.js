@@ -34,6 +34,10 @@ module.exports = function (app) {
 
           } else {
 
+              if (!likes.hasOwnProperty(selection[0])) {
+                likes[selection[0]] = 0;
+              }
+
               const data1 = await fetch(`https://stock-price-checker-proxy.freecodecamp.rocks/v1/stock/${selection[0]}/quote`);
               const info1 = await data1.json();
               let price1;
