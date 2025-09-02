@@ -47,6 +47,10 @@ module.exports = function (app) {
                 price1 = latestPrice;
               }
 
+              if (!likes.hasOwnProperty(selection[1])) {
+                likes[selection[1]] = 0;
+              }
+
               const data2 = await fetch(`https://stock-price-checker-proxy.freecodecamp.rocks/v1/stock/${selection[1]}/quote`);
               const info2 = await data2.json();
               let price2;
