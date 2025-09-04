@@ -20,8 +20,8 @@ suite('Functional Tests', function() {
           assert.property(stockData, 'price');
           assert.property(stockData, 'likes');
           assert.equal(stockData.stock, 'GOOG');
+          done();
         });
-        done();
     });
 
     test("Viewing one stock and liking it", function(done) {
@@ -55,8 +55,8 @@ suite('Functional Tests', function() {
           assert.property(stockData, 'likes');
           assert.equal(stockData.stock, 'GOOG');
           assert.equal(stockData.likes, stockLikes);
+          done();
         });
-        done();
     });
 
     test("Viewing two stocks", function(done) {
@@ -93,8 +93,8 @@ suite('Functional Tests', function() {
           assert.property(stockData[1], 'stock');
           assert.property(stockData[1], 'price');
           assert.property(stockData[1], 'rel_likes');
+          done();
         });
-        done();
     });
 
 });
